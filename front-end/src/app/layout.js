@@ -1,6 +1,12 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "./_components/Navbar";
+import Navbar from "@/components/Navbar";
+
+import "@/styles/globals.css";
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Exam Prep",
@@ -10,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900">
+      <body className={`${openSans.className} bg-gray-50 text-gray-900`}>
         <Navbar />
         <main className="p-6 max-w-4xl mx-auto">{children}</main>
       </body>
