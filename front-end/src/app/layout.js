@@ -16,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${openSans.className} bg-gray-50 text-gray-900`}>
+      <body
+        className={`${openSans.className} antialiased bg-gray-50 text-gray-900`}
+      >
         <Navbar />
         <main className="p-6 max-w-4xl mx-auto">{children}</main>
       </body>
