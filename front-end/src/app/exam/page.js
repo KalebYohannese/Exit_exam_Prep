@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div>
+    <div className="max-w-4xl mx-auto">
       <h1>
         Get Answers For The Ethiopian Exit Exam Questions With The Help Of AI.
       </h1>

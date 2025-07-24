@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         className={`${openSans.className} antialiased bg-gray-50 text-gray-900`}
       >
         <Navbar />
-        <main className="p-6 max-w-4xl mx-auto">{children}</main>
+        <main className="p-6 width-full">{children}</main>
       </body>
     </html>
   );
