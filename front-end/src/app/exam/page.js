@@ -7,10 +7,9 @@ export const metadata = {
 export default function Page() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1>
+      <h1 className="text-4xl font-bold text-center my-8">
         Get Answers For The Ethiopian Exit Exam Questions With The Help Of AI.
       </h1>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card title="Accounting" />
         <Card title="Animal-Science" />

@@ -1,3 +1,6 @@
+import ButtonGrid from "@/components/Button";
+import { FlagIcon } from "@heroicons/react/24/outline";
+
 export default function Page() {
   return (
     <div className="w-full">
@@ -5,13 +8,19 @@ export default function Page() {
         Computer Science Exit exam 2025
       </h1>
       <div className="py-24 grid grid-cols-[15%_50%_35%] gap-6 w-full">
-        <div className="bg-gray-300 border">
+        <div className="bg-gray-300 border max-h-40">
           <h1 className="text-xl font-bold">Question 1</h1>
           <h2>Not yet answered</h2>
           <h2>Marked out of</h2>
           <h3>1.00</h3>
-          <h3>Flag question</h3>
+          <div>
+            <div className="flex items-center gap-2 mt-2 cursor-pointer hover:text-red-600">
+              <FlagIcon className="h-5 w-5" />
+              <span className="font-medium">Flag question</span>
+            </div>
+          </div>
         </div>
+
         <div>
           <div className="bg-green-200 rounded-md">
             <h1>
@@ -21,7 +30,7 @@ export default function Page() {
               Meron, which one of the following scenario is not correct if they
               are using asymmetric keys?
             </h1>
-            <div className="space-y-2">
+            <div className="space-y-2 py-3">
               <label className="flex items-center space-x-2">
                 <input
                   type="radio"
@@ -66,17 +75,34 @@ export default function Page() {
                 </span>
               </label>
             </div>
+            <div className="py-3 flex justify-center space-x-3">
+              <button type="button" className="border rounded-sm px-2 bg-white">
+                Need a hint?
+              </button>
+              <button type="button" className="border rounded-sm px-2 bg-white">
+                Get AI explanation
+              </button>
+            </div>
           </div>
-          <div className="flex justify-between">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+          <div className="flex justify-between py-3">
+            <button
+              type="button"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            >
               Previous
             </button>
-            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+            <button
+              type="button"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+            >
               Next
             </button>
           </div>
         </div>
-        <div>30% Column</div>
+
+        <div className="bg-gray-100 border rounded-sm">
+          <ButtonGrid />
+        </div>
       </div>
     </div>
   );
