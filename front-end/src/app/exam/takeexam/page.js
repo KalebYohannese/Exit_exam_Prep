@@ -7,7 +7,7 @@ export default function Page() {
       <h1 className="text-6xl font-bold text-center">
         Computer Science Exit exam 2025
       </h1>
-      <div className="py-24 grid grid-cols-[15%_50%_35%] gap-6 w-full">
+      <div className="py-24 grid grid-cols-[15%_55%_30%] gap-6 w-full">
         <div className="bg-gray-300 border max-h-40">
           <h1 className="text-xl font-bold">Question 1</h1>
           <h2>Not yet answered</h2>
@@ -22,7 +22,7 @@ export default function Page() {
         </div>
 
         <div>
-          <div className="bg-green-200 rounded-md">
+          <div className="bg-green-200 rounded-md p-3">
             <h1>
               6. Let KPRIV-A and KPUB-A be private and public keys for awigichew
               and KPRIV-M and KPUB-M are private and public keys for Meron
@@ -100,7 +100,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="bg-gray-100 border rounded-sm">
+        <div className="bg-gray-100 border rounded-sm mr-9">
           <ButtonGrid />
         </div>
       </div>
