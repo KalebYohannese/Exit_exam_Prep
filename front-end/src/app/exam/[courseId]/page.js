@@ -1,7 +1,14 @@
 import ButtonGrid from "@/components/Button";
 import { FlagIcon } from "@heroicons/react/24/outline";
 
-export default function Page() {
+// export async function generateMetadata({ params }) {
+//   const { name } = await getExam(params.courseId);
+//   return {
+//     title: `${name} Exam`,
+//   };
+// }
+
+export default function Page({ params }) {
   return (
     <div className="w-full">
       <h1 className="text-6xl font-bold text-center">
