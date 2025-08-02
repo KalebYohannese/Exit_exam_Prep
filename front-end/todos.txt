@@ -1,0 +1,3 @@
+1. After you fetch exams based on their id change the page into a static route by using generateStatic params see video 454
+2. Use suspense when needed
+3. check out jonnas's side navigation if you want to implement it on yours
