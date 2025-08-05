@@ -59,11 +59,14 @@ const questions = [
 export default function Page({ params }) {
   const [question, setQuestion] = useState(questions[0]);
   const [hint, setHint] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   function handleNext() {
     const currentIndex = questions.findIndex((q) => q.id === question.id);
     if (currentIndex < questions.length - 1) {
       setQuestion(questions[currentIndex + 1]);
+      setHint(false);
+      setSelectedOption(null);
     }
   }
 
@@ -71,11 +74,17 @@ export default function Page({ params }) {
     const currentIndex = questions.findIndex((q) => q.id === question.id);
     if (currentIndex > 0) {
       setQuestion(questions[currentIndex - 1]);
+      setSelectedOption(null);
+      setHint(false);
     }
   }
 
   function handleHint() {
     setHint((hint) => !hint);
+  }
+
+  function handleOptionChange(e) {
+    setSelectedOption(Number(e.target.value));
   }
 
   return (
@@ -101,40 +110,21 @@ export default function Page({ params }) {
           <div className="bg-green-200 rounded-md p-3">
             <h1>{question.question}</h1>
             <div className="space-y-2 py-3">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  value="option1"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span>A. {question.options[0]}</span>
-              </label>
-
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  value="option2"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span>B. {question.options[1]}</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  value="option2"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span>C. {question.options[2]}</span>
-              </label>
-
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  value="option2"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500"
-                />
-                <span>D.{question.options[3]}</span>
-              </label>
+              {question.options.map((option, index) => (
+                <label key={index} className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    name="answer" // All radios share the same name
+                    value={index}
+                    checked={selectedOption === index}
+                    onChange={handleOptionChange}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>
+                    {String.fromCharCode(65 + index)}. {option}
+                  </span>
+                </label>
+              ))}
             </div>
             <div>
               <div className="py-3 flex justify-center space-x-3">
