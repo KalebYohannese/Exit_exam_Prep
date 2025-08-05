@@ -1,5 +1,8 @@
+"use client";
+
 import ButtonGrid from "@/components/Button";
 import { FlagIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 // export async function generateMetadata({ params }) {
 //   const { name } = await getExam(params.courseId);
@@ -8,7 +11,68 @@ import { FlagIcon } from "@heroicons/react/24/outline";
 //   };
 // }
 
+const questions = [
+  {
+    id: 1,
+    question:
+      "A process is terminated by the operating system due to a reference to non-existing memory. Which one of the following best explains the process termination?",
+    options: [
+      "Error exit",
+      "Fatal exit",
+      "Normal exit",
+      "Terminated by another process",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "A fatal exit occurs when a process attempts to access memory that doesn't exist (segmentation fault). This is a severe error that forces the OS to terminate the process.",
+  },
+  {
+    id: 2,
+    question:
+      "Size of large data files can be reduced to save storage disk space. Which algorithm is appropriate to reduce size of large files?",
+    options: [
+      "Merge sort algorithm",
+      "Huffman encoding algorithm",
+      "Heap sort algorithm",
+      "Prim's algorithm",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Huffman encoding is a lossless data compression algorithm that uses variable-length codes to represent data, with more frequent data items getting shorter codes, thus reducing overall file size.",
+  },
+  {
+    id: 3,
+    question:
+      "Which one of the following is asynchronous in message communication?",
+    options: [
+      "Blocking send",
+      "Blocking receive",
+      "Direct message",
+      "Non-block receive",
+    ],
+    correctAnswer: 3,
+    explanation:
+      "Non-blocking receive is asynchronous because the receiver doesn't wait for the message to arrive - it can continue processing and check for messages later.",
+  },
+];
+
 export default function Page({ params }) {
+  const [question, setQuestion] = useState(questions[0]);
+
+  function handleNext() {
+    const currentIndex = questions.findIndex((q) => q.id === question.id);
+    if (currentIndex < questions.length - 1) {
+      setQuestion(questions[currentIndex + 1]);
+    }
+  }
+
+  function handlePrevious() {
+    const currentIndex = questions.findIndex((q) => q.id === question.id);
+    if (currentIndex > 0) {
+      setQuestion(questions[currentIndex - 1]);
+    }
+  }
+
   return (
     <div className="w-full">
       <h1 className="text-6xl font-bold text-center">
@@ -30,13 +94,7 @@ export default function Page({ params }) {
 
         <div>
           <div className="bg-green-200 rounded-md p-3">
-            <h1>
-              6. Let KPRIV-A and KPUB-A be private and public keys for awigichew
-              and KPRIV-M and KPUB-M are private and public keys for Meron
-              respectively. If Awifichew would like to send secured message to
-              Meron, which one of the following scenario is not correct if they
-              are using asymmetric keys?
-            </h1>
+            <h1>{question.question}</h1>
             <div className="space-y-2 py-3">
               <label className="flex items-center space-x-2">
                 <input
@@ -44,10 +102,7 @@ export default function Page({ params }) {
                   value="option1"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500"
                 />
-                <span>
-                  A. Awifichew uses Meron&apos;s private key KPRIV-M to encrypt
-                  his plain text
-                </span>
+                <span>A. {question.options[0]}</span>
               </label>
 
               <label className="flex items-center space-x-2">
@@ -56,9 +111,7 @@ export default function Page({ params }) {
                   value="option2"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500"
                 />
-                <span>
-                  B. Awifichew uses his KPUB-A to encrypt his plain text
-                </span>
+                <span>B. {question.options[1]}</span>
               </label>
               <label className="flex items-center space-x-2">
                 <input
@@ -66,9 +119,7 @@ export default function Page({ params }) {
                   value="option2"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500"
                 />
-                <span>
-                  C. Meron can decode the encrypted text using her KPRIV-M
-                </span>
+                <span>C. {question.options[2]}</span>
               </label>
 
               <label className="flex items-center space-x-2">
@@ -77,9 +128,7 @@ export default function Page({ params }) {
                   value="option2"
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500"
                 />
-                <span>
-                  D. Meron can decode the scrambled text using her KPUB-M
-                </span>
+                <span>D.{question.options[3]}</span>
               </label>
             </div>
             <div className="py-3 flex justify-center space-x-3">
@@ -95,12 +144,14 @@ export default function Page({ params }) {
             <button
               type="button"
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              onClick={handlePrevious}
             >
               Previous
             </button>
             <button
               type="button"
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              onClick={handleNext}
             >
               Next
             </button>
