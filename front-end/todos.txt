@@ -2,3 +2,4 @@
 2. Use suspense when needed
 3. check out jonnas's side navigation if you want to implement it on yours
 Hydration problem in buttons on courseId dynamic page or the Question component
+check the params problem in courseId dynamic page

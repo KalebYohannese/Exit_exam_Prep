@@ -2,8 +2,8 @@ import Image from "next/image";
 import img from "/public/moe.png";
 import Link from "next/link";
 
-export default function Card({ title }) {
-  const id = 1;
+export default function Card({ course }) {
+  const { id, title } = course;
 
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white">

@@ -1,5 +1,3 @@
-"use client";
-
 import Question from "@/components/Question";
 // import ButtonGrid from "@/components/Button";
 // import { FlagIcon } from "@heroicons/react/24/outline";
@@ -57,6 +55,30 @@ const questions = [
   },
 ];
 
-export default function Page({ params }) {
-  return <Question questions={questions} />;
+const courses = [
+  { id: 1, title: "Accounting" },
+  { id: 2, title: "Animal Science" },
+  { id: 3, title: "Biodiversity" },
+  { id: 4, title: "Biology" },
+  { id: 5, title: "Civil Engineering" },
+  { id: 6, title: "Computer Science" },
+  { id: 7, title: "Construction Technology Management" },
+  { id: 8, title: "Electrical Engineering" },
+  { id: 9, title: "Economics" },
+  { id: 10, title: "Geography" },
+  { id: 11, title: "Information Systems" },
+  { id: 12, title: "Management" },
+];
+
+export default async function Page({ params }) {
+  const id = await params.courseId;
+
+  return (
+    <div className="w-full">
+      <h1 className="text-6xl font-bold text-center">
+        {courses[id - 1].title} Exit exam 2025
+      </h1>
+      <Question questions={questions} />
+    </div>
+  );
 }

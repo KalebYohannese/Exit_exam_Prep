@@ -37,9 +37,6 @@ export default function Question({ questions }) {
 
   return (
     <div className="w-full">
-      <h1 className="text-6xl font-bold text-center">
-        Computer Science Exit exam 2025
-      </h1>
       <div className="py-24 grid grid-cols-[15%_55%_30%] gap-6 w-full">
         <div className="bg-gray-300 border max-h-40">
           <h1 className="text-xl font-bold">Question 1</h1>
