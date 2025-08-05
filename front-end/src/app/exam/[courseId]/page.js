@@ -58,6 +58,7 @@ const questions = [
 
 export default function Page({ params }) {
   const [question, setQuestion] = useState(questions[0]);
+  const [hint, setHint] = useState(false);
 
   function handleNext() {
     const currentIndex = questions.findIndex((q) => q.id === question.id);
@@ -71,6 +72,10 @@ export default function Page({ params }) {
     if (currentIndex > 0) {
       setQuestion(questions[currentIndex - 1]);
     }
+  }
+
+  function handleHint() {
+    setHint((hint) => !hint);
   }
 
   return (
@@ -131,13 +136,23 @@ export default function Page({ params }) {
                 <span>D.{question.options[3]}</span>
               </label>
             </div>
-            <div className="py-3 flex justify-center space-x-3">
-              <button type="button" className="border rounded-sm px-2 bg-white">
-                Need a hint?
-              </button>
-              <button type="button" className="border rounded-sm px-2 bg-white">
-                Get AI explanation
-              </button>
+            <div>
+              <div className="py-3 flex justify-center space-x-3">
+                <button
+                  type="button"
+                  className="border rounded-sm px-2 bg-white"
+                  onClick={handleHint}
+                >
+                  Need a hint?
+                </button>
+                <button
+                  type="button"
+                  className="border rounded-sm px-2 bg-white"
+                >
+                  Get AI explanation
+                </button>
+              </div>
+              <div>{hint && <p>{question.explanation}</p>}</div>
             </div>
           </div>
           <div className="flex justify-between py-3">
