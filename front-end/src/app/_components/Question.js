@@ -53,7 +53,14 @@ export default function Question({ questions }) {
 
         <div>
           <div className="bg-green-200 rounded-md p-3">
-            <h1>{question.question}</h1>
+            <h1>
+              {question.question.split("\n").map((line, idx) => (
+                <span key={idx}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+            </h1>
             <div className="space-y-2 py-3">
               {question.options.map((option, index) => (
                 <label key={index} className="flex items-center space-x-2">
