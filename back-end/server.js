@@ -17,9 +17,11 @@ app.use(express.json());
 // Routs
 // const aiRoutes = require("./routes/aiRoutes");
 const questionRoutes = require("./routes/questionRoutes");
+const courseRoutes = require("./routes/courseRoutes");
 
 // app.use("/api", aiRoutes);
 app.use("/questions", questionRoutes);
+app.use("/courses", courseRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
