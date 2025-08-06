@@ -75,7 +75,7 @@ export default async function Page({ params }) {
   const id = await params.courseId;
 
   const data = await getQuestions();
-  console.log("Data fetched:", data);
+  // console.log("Data fetched:", data);
 
   return (
     <div className="w-full">

@@ -17,3 +17,21 @@ export async function getQuestions() {
     throw error;
   }
 }
+
+export async function getCourses() {
+  try {
+    const response = await fetch(`${url}/courses`, {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch courses");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching courses:", error);
+    throw error;
+  }
+}

@@ -1,23 +1,26 @@
 import Card from "@/components/Card";
+import { getCourses } from "@/lib/data-service";
 
 export const metadata = {
   title: "Exam",
 };
 
-const courses = [
-  { id: 1, title: "Accounting" },
-  { id: 2, title: "Animal Science" },
-  { id: 3, title: "Biodiversity" },
-  { id: 4, title: "Biology" },
-  { id: 5, title: "Civil Engineering" },
-  { id: 6, title: "Computer Science" },
-  { id: 7, title: "Construction Technology Management" },
-  { id: 8, title: "Electrical Engineering" },
-  { id: 9, title: "Economics" },
-  { id: 10, title: "Geography" },
-  { id: 11, title: "Information Systems" },
-  { id: 12, title: "Management" },
-];
+// const courses = [
+//   { id: 1, title: "Accounting" },
+//   { id: 2, title: "Animal Science" },
+//   { id: 3, title: "Biodiversity" },
+//   { id: 4, title: "Biology" },
+//   { id: 5, title: "Civil Engineering" },
+//   { id: 6, title: "Computer Science" },
+//   { id: 7, title: "Construction Technology Management" },
+//   { id: 8, title: "Electrical Engineering" },
+//   { id: 9, title: "Economics" },
+//   { id: 10, title: "Geography" },
+//   { id: 11, title: "Information Systems" },
+//   { id: 12, title: "Management" },
+// ];
+
+const courses = await getCourses();
 
 export default function Page() {
   return (
