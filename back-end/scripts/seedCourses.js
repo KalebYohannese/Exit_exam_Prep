@@ -1,14 +1,6 @@
 const supabase = require("../service/supabase");
 const courses = require("../data/coursesData");
 
-// require("dotenv").config();
-// const { createClient } = require("@supabase/supabase-js");
-
-// const supabase = createClient(
-//   process.env.SUPABASE_URL,
-//   process.env.SUPABASE_KEY
-// );
-
 async function insertCourses() {
   const { data, error } = await supabase.from("courses").insert(courses);
 

@@ -2,17 +2,6 @@ const express = require("express");
 const router = express.Router();
 const supabase = require("../service/supabase");
 
-// const dotenv = require("dotenv");
-// dotenv.config();
-
-// // Supabase
-// const { createClient } = require("@supabase/supabase-js");
-
-// const supabase = createClient(
-//   process.env.SUPABASE_URL,
-//   process.env.SUPABASE_KEY
-// );
-
 // GET /questions/
 router.get("/", async (req, res) => {
   try {
