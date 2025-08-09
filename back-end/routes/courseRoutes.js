@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
-require("dotenv").config();
+const supabase = require("../service/supabase");
 
-// Supabase
-const { createClient } = require("@supabase/supabase-js");
+// require("dotenv").config();
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-);
+// // Supabase
+// const { createClient } = require("@supabase/supabase-js");
+
+// const supabase = createClient(
+//   process.env.SUPABASE_URL,
+//   process.env.SUPABASE_KEY
+// );
 
 // GET /courses/
 router.get("/", async (req, res) => {
