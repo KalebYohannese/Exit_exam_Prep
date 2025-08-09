@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routs
+// Routes
 // const aiRoutes = require("./routes/aiRoutes");
 const questionRoutes = require("./routes/questionRoutes");
 const courseRoutes = require("./routes/courseRoutes");
