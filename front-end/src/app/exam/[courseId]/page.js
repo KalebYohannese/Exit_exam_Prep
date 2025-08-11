@@ -1,4 +1,3 @@
-import Question from "@/components/Question";
 import Year from "@/components/Year";
 import { getAllQuestions, getQuestions, getCourse } from "@/lib/data-service";
 
@@ -13,12 +12,12 @@ export default async function Page({ params }) {
   const { courseId } = await params;
   const year = 2015;
 
-  const data = await getQuestions(courseId, year);
+  // const data = await getQuestions(courseId, year);
   const course = await getCourse(courseId);
 
   return (
     <div className="w-full">
-      <Year course={course} questions={data} />
+      <Year course={course} />
     </div>
   );
 }
