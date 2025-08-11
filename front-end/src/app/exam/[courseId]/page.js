@@ -84,7 +84,7 @@ export default async function Page({ params }) {
   return (
     <div className="w-full">
       <h1 className="text-6xl font-bold text-center">
-        {course[0].title} Exit exam 2025
+        {course[0].title} Exit exam
       </h1>
       <Question questions={data} />
     </div>
