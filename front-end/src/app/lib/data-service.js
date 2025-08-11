@@ -19,6 +19,7 @@ export async function getAllQuestions() {
 }
 
 export async function getQuestions(courseId, year) {
+  // console.log("Fetching:", `${url}/questions/${courseId}/${year}`);
   try {
     const response = await fetch(`${url}/questions/${courseId}/${year}`, {
       method: "GET",
@@ -27,6 +28,8 @@ export async function getQuestions(courseId, year) {
     if (!response.ok) {
       throw new Error("Failed to fetch questions");
     }
+
+    // console.log("Status:", response.status);
 
     const data = await response.json();
     return data;
