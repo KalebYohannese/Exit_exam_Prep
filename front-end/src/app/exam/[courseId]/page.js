@@ -72,7 +72,7 @@ import { getAllQuestions, getQuestions, getCourse } from "@/lib/data-service";
 // ];
 
 export default async function Page({ params }) {
-  const courseId = await params.courseId;
+  const { courseId } = await params;
   const year = 2015;
 
   // const data = await getAllQuestions();
