@@ -6,7 +6,10 @@ const supabase = require("../service/supabase");
 // /courses get all courses
 router.get("/", async (req, res) => {
   try {
-    const { data, error } = await supabase.from("courses").select("*");
+    const { data, error } = await supabase
+      .from("courses")
+      .select("*")
+      .order("id", { ascending: true });
 
     if (error) throw error;
 
