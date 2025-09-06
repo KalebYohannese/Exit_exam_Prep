@@ -40,3 +40,5 @@ router.get("/:courseId", async (req, res) => {
 });
 
 module.exports = router;
+
+// copilot trial
